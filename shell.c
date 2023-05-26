@@ -23,6 +23,15 @@ int main(void)
 			continue;
 		}
 
+		// Split the line into arguments
+		int i = 0;
+		args[i] = strtok(line, " ");
+		while (args[i] != NULL)
+		{
+			i++;
+			args[i] = strtok(NULL, " ");
+		}
+
 		args[0] = line;
 		args[1] = NULL;
 
@@ -30,7 +39,7 @@ int main(void)
 		if (pid == 0)
 		{
 			execve(args[0], args, NULL);
-			perror("execve");
+			perror("execvp");
 			exit(EXIT_FAILURE);
 		}
 		else if (pid > 0)
@@ -44,5 +53,5 @@ int main(void)
 		}
 	}
 
-	return 0;
+	return (0);
 }
