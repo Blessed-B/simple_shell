@@ -6,8 +6,10 @@ int main(void)
 {
 	char *args[MAX_LINE / 2 + 1];
 	char line[MAX_LINE];
-	int should_run = 1;
+	bool should_run;
 	pid_t pid;
+
+	should_run = True;
 
 	while (should_run)
 	{
