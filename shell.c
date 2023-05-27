@@ -56,7 +56,7 @@ int find_builtin_command(param_return_info_t *param_return_info)
 {
 	int i, built_in_ret = -1;
 	builtin_table_t builtin_table[] = {
-		 {"exit", _exit},
+		 {"exit", my_exit},
 		 {"env", display_env},
 		 {"help", cd_helper},
 		 {"history", display_history},

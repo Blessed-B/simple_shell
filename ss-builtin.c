@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * _exit - exits the shell
+ * my_exit - exits the shell
  * @info: Struct with potential arguments.
  * (0) if info.argv[0] != "exit"
  */
-int _exit(info_t *info)
+int my_exit(info_t *info)
 {
 	int exit_status;
 
