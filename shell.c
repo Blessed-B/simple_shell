@@ -10,7 +10,7 @@ int main(void)
 	pid_t pid;
 	int i;
 
-	should_run = True;
+	should_run = true;
 
 	while (should_run)
 	{
@@ -22,7 +22,7 @@ int main(void)
 
 		if (strcmp(line, "exit") == 0)
 		{
-			should_run = False;
+			should_run = false;
 			continue;
 		}
 
