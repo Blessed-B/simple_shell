@@ -23,7 +23,7 @@ int main(void)
 			continue;
 		}
 
-		// Split the line into arguments
+		/* Split the line into arguments */
 		int i = 0;
 		args[i] = strtok(line, " ");
 		while (args[i] != NULL)
