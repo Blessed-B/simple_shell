@@ -8,6 +8,7 @@ int main(void)
 	char line[MAX_LINE];
 	bool should_run;
 	pid_t pid;
+	int i;
 
 	should_run = True;
 
@@ -21,12 +22,12 @@ int main(void)
 
 		if (strcmp(line, "exit") == 0)
 		{
-			should_run = 0;
+			should_run = False;
 			continue;
 		}
 
 		/* Split the line into arguments */
-		int i = 0;
+		i = 0;
 		args[i] = strtok(line, " ");
 		while (args[i] != NULL)
 		{
