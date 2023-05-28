@@ -56,7 +56,7 @@ int _cd(info_t *info)
 			chdir_return = chdir(new_dir);
 		}
 	}
-	else if (_strcmp(info->argv[1], "-") == 0)
+	else if (string_compare(info->argv[1], "-") == 0)
 	{
 		if (!get_env(info, "OLDPWD="))
 		{

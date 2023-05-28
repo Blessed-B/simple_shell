@@ -16,7 +16,7 @@ char **split_string_into_words(char *input_string, char *delimiter)
 	if (!delimiter)
 		delimiter = " ";
 	for (index1 = 0; input_string[index1] != '\0'; index1++)
-		if (!is_delim(input_string[index1], delimiter) && (is_delim(input_string[index1 + 1], delimiter) || !input_string[index1 + 1]))
+		if (!check_delim(input_string[index1], delimiter) && (check_delim(input_string[index1 + 1], delimiter) || !input_string[index1 + 1]))
 			word_count++;
 
 	if (word_count == 0)
@@ -26,10 +26,10 @@ char **split_string_into_words(char *input_string, char *delimiter)
 		return (NULL);
 	for (index1 = 0, index2 = 0; index2 < word_count; index2++)
 	{
-		while (is_delim(input_string[index1], delimiter))
+		while (check_delim(input_string[index1], delimiter))
 			index1++;
 		index3 = 0;
-		while (!is_delim(input_string[index1 + index3], delimiter) && input_string[index1 + index3])
+		while (!check_delim(input_string[index1 + index3], delimiter) && input_string[index1 + index3])
 			index3++;
 		string_array[index2] = malloc((index3 + 1) * sizeof(char));
 		if (!string_array[index2])

@@ -55,7 +55,7 @@ int main_shell_loop(info_t *param_return_info, char **arg_vector)
 int find_builtin_command(info_t *param_return_info)
 {
 	int i, built_in_ret = -1;
-	builtin_table_t builtin_table[] = {
+	builtin_table builtin_table[] = {
 		 {"exit", my_exit},
 		 {"env", display_env},
 		 {"help", cd_helper},
@@ -67,7 +67,7 @@ int find_builtin_command(info_t *param_return_info)
 		 {NULL, NULL}};
 
 	for (i = 0; builtin_table[i].type; i++)
-		if (_strcmp(param_return_info->argv[0], builtin_table[i].type) == 0)
+		if (string_compare(param_return_info->argv[0], builtin_table[i].type) == 0)
 		{
 			param_return_info->line_count++;
 			built_in_ret = builtin_table[i].func(param_return_info);
@@ -92,7 +92,7 @@ void find_command(info_t *param_return_info)
 		param_return_info->linecount_flag = 0;
 	}
 	for (i = 0, k = 0; param_return_info->arg[i]; i++)
-		if (!is_delim(param_return_info->arg[i], " \t\n"))
+		if (!check_delim(param_return_info->arg[i], " \t\n"))
 			k++;
 	if (!k)
 		return;

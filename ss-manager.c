@@ -113,13 +113,13 @@ int change_variables(info_t *info)
 		if (info->argv[index][0] != '$' || !info->argv[index][1])
 			continue;
 
-		if (!_strcmp(info->argv[index], "$?"))
+		if (!string_compare(info->argv[index], "$?"))
 		{
 			change_string(&(info->argv[index]),
 							  _strdup(_itoa(info->status, 10, 0)));
 			continue;
 		}
-		if (!_strcmp(info->argv[index], "$$"))
+		if (!string_compare(info->argv[index], "$$"))
 		{
 			change_string(&(info->argv[index]),
 							  _strdup(_itoa(getpid(), 10, 0)));
