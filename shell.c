@@ -7,7 +7,7 @@
  *
  * Return: 0 on success, 1 on error, or error code
  */
-int main_shell_loop(param_return_info_t *param_return_info, char **arg_vector)
+int main_shell_loop(info_t *param_return_info, char **arg_vector)
 {
 	ssize_t read = 0;
 	int builtin_return = 0;
@@ -52,7 +52,7 @@ int main_shell_loop(param_return_info_t *param_return_info, char **arg_vector)
  * 1 if builtin found but not successful,
  * 2 if builtin signals exit()
  */
-int find_builtin_command(param_return_info_t *param_return_info)
+int find_builtin_command(info_t *param_return_info)
 {
 	int i, built_in_ret = -1;
 	builtin_table_t builtin_table[] = {
@@ -79,10 +79,9 @@ int find_builtin_command(param_return_info_t *param_return_info)
 /**
  * find_command - finds a command in PATH
  * @param_return_info: the parameter & return info struct
- *
  * Return: void
  */
-void find_command(param_return_info_t *param_return_info)
+void find_command(info_t *param_return_info)
 {
 	char *path = NULL;
 	int i, k;
@@ -124,7 +123,7 @@ void find_command(param_return_info_t *param_return_info)
  *
  * Return: void
  */
-void fork_command(param_return_info_t *param_return_info)
+void fork_command(info_t *param_return_info)
 {
 	pid_t child_pid;
 	child_pid = fork();

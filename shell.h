@@ -168,7 +168,8 @@ int change_string(char **old_string, char *new_string);
 int free_pointer(void **pointer);
 char *fill_memory(char *memory, char byte, unsigned int num_bytes);
 void free_strings(char **strings);
-void *reallocate_memory(void *pointer, unsigned int old_size, unsigned int new_size) int is_executable_command(info_t *info, char *file_path);
+void *reallocate_memory(void *pointer, unsigned int old_size, unsigned int new_size);
+int is_executable_command(info_t *info, char *file_path);
 char *duplicate_characters(char *path_string, int start_index, int stop_index);
 char *find_command_path(info_t *info, char *path_string, char *command);
 int string_length(char *string);
@@ -178,5 +179,9 @@ char *concatenate_strings(char *destination, char *source);
 char *_strcpy(char *destination, char *source);
 char *_strdup(const char *str);
 void _puts(char *string);
+int main_shell_loop(info_t *param_return_info, char **arg_vector);
+int find_builtin_command(info_t *param_return_info);
+void find_command(info_t *param_return_info);
+void fork_command(info_t *param_return_info);
 
 #endif /* SHELL_H */
