@@ -39,7 +39,7 @@ char **linkd_li_to_str(list_t *head)
 
 	for (index = 0; current_node; current_node = current_node->next, index++)
 	{
-		string = malloc(_strlen(current_node->str) + 1);
+		string = malloc(string_length(current_node->str) + 1);
 		if (!string)
 		{
 			for (index = 0; index < length; index++)

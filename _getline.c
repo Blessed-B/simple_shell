@@ -90,7 +90,7 @@ ssize_t fetch_inp(info_t *info)
 		}
 
 		*buf_p = p;				/* pass back pointer to current command position */
-		return (_strlen(p)); /* return length of current command */
+		return (string_length(p)); /* return length of current command */
 	}
 
 	*buf_p = buf;
@@ -190,7 +190,7 @@ int custom_getline(info_t *info, char **pointer, size_t *length)
  */
 void sigint_handler(__attribute__((unused)) int sig_num)
 {
-	write_char("\n");
-	write_char("$ ");
+	_puts("\n");
+	_puts("$ ");
 	_putchar(BUF_FLUSH);
 }

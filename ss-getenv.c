@@ -68,7 +68,7 @@ int set_environment(info_t *info, char *variable, char *value)
 	if (!variable || !value)
 		return (0);
 
-	buffer = malloc(_strlen(variable) + _strlen(value) + 2);
+	buffer = malloc(string_length(variable) + string_length(value) + 2);
 	if (!buffer)
 		return (1);
 
